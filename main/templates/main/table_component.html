@@ -1,0 +1,122 @@
+{% block content %}
+		<link
+			href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+			rel="stylesheet">
+		<div class="justify-center flex flex-row flex-wrap md:flex-nowrap gap-2">
+			<div class="flex bg-white">
+				<div class="col-span-12">
+					<div class="overflow-auto lg:overflow-visible ">
+						<h1 class="text-3xl text-black pb-6 text-center">Past</h1>
+						<table class="table text-gray-400 border-separate space-y-6 text-xs md:text-sm">
+							<thead class="bg-gray-800 text-gray-500">
+								<tr>
+									<th class="p-3" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Name</th>
+									<th class="p-3 text-left">Agency</th>
+									<th class="p-3 text-left">Launches</th>
+									<th class="p-3 text-left rounded-r-[8px] md:rounded-none" >Status</th>
+									<th class="p-3 text-left hidden md:inline md:rounded-r-[8px] md:table-cell" >Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for launch in past_launch_data %}
+								<tr class="bg-gray-800">
+									<td class="p-3">
+										<div class="flex align-items-center">
+											<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="{{launch.links.patch.small}}" alt="{{crew.image}}">
+											<div class="ml-3">
+												{% if launch.links.article == None %}
+												<div class="text-gray-500">{{launch.name}}</div>
+												{% else %}
+												<div class="text-blue-500"><a href="{{launch.links.article}}">{{launch.name}}</a></div>
+												{% endif %}
+												<div class="text-gray-500 text-xs md:text-sm">Flight No. {{launch.flight_number}}</div>
+											</div>
+										</div>
+									</td>
+									<td class="p-3">
+										{{launch.rocket_name}}
+									</td>
+									<td class="p-3">
+										{{launch.launchpad_name}}
+									</td>
+									<td class="p-3 rounded-r-[8px] md:rounded-none">
+										{% if crew.status == 'active' %}
+										<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+										{% else %}
+										<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
+										{% endif %}
+									</td>
+									<td class="p-3 hidden md:table-cell">
+										<span
+											x-data="{date: new Date($el.innerText)}"
+											x-text="date.toLocaleString()">
+											{{launch.date_utc}}
+										</span>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<div class="flex bg-white">
+				<div class="col-span-12">
+					<div class="overflow-auto lg:overflow-visible ">
+						<h1 class="text-3xl text-black pb-6 text-center">Upcoming</h1>
+						<table class="table text-gray-400 border-separate space-y-6 text-xs md:text-sm">
+							<thead class="bg-gray-800 text-gray-500">
+								<tr>
+									<th class="p-3" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Name</th>
+									<th class="p-3 text-left">Agency</th>
+									<th class="p-3 text-left">Launches</th>
+									<th class="p-3 text-left rounded-r-[8px] md:rounded-none">Status</th>
+									<th class="p-3 text-left hidden md:inline md:rounded-r-[8px] md:table-cell">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for launch in upcoming_launch_data %}
+								<tr class="bg-gray-800">
+									<td class="p-3">
+										<div class="flex align-items-center">
+											{% if launch.links.patch.small %}
+												<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="{{launch.links.patch.small}}" alt="{{launch.links.patch.large}}">
+											{% else %}
+												<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="https://imgur.com/BrW201S.png" alt="{{launch.links.patch.large}}">
+											{% endif %}
+											<div class="ml-3">
+												{% if launch.links.article == None %}
+												<div class="text-gray-500">{{launch.name}}</div>
+												{% else %}
+												<div class="text-blue-500"><a href="{{launch.links.article}}">{{launch.name}}</a></div>
+												{% endif %}
+												<div class="text-gray-500">Flight No. {{launch.flight_number}}</div>
+											</div>
+										</div>
+									</td>
+									<td class="p-3">
+										{{launch.rocket_name}}
+									</td>
+									<td class="p-3">
+										{{launch.launchpad_name}}
+									</td>
+									<td class="p-3 rounded-r-[8px] md:rounded-none">
+										<span class="bg-yellow-200 text-gray-800 rounded-md px-2">N/A</span>
+									</td>
+									<td class="p-3 hidden md:table-cell">
+										<span
+											x-data="{date: new Date($el.innerText)}"
+											x-text="date.toLocaleString()">
+											{{launch.date_utc}}
+										</span>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock content %}

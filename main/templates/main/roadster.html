@@ -1,0 +1,134 @@
+{% extends 'main.html' %}
+{% load humanize %}
+{% block content %}
+
+<div class="w-full h-screen overflow-x-hidden border-t flex flex-col items-center">
+  <main class="w-full flex-grow p-6 md:w-[50%]">
+    <div>
+        <!-- Ship Description Card -->
+        <h1 class="text-center text-black font-semibold underline text-xl">{{roadster_data.name}}</h1>
+        <div class="fade-in justify-center mt-3" style="text-align: -webkit-center; ">
+            <img class="drop-shadow-2xl  rounded-lg"  src="https://cdn.vox-cdn.com/thumbor/fbPdbfTjNkmvGwax7nPIlMeNaxU=/0x0:852x476/1200x800/filters:focal(358x170:494x306):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58726287/tesla.0.gif" width="500"/>
+        </div>
+        <h1 class="text-center text-xl pt-4 m-3 font-semibold underline underline-offset-4">Description</h1>
+        <p>{{roadster_data.details}}</p>
+
+        <!-- Grid cols Header -->
+        <h1 class="text-center text-xl pt-4 m-3 font-semibold underline underline-offset-4">Stats</h1>
+
+        <!-- Grid cols -->
+        <div class="flex flex-col sm:flex-row gap-4 text-center justify-center">
+            <!-- First Row Grid -->
+            <ul>
+              <li class="m-3">
+                <b>Speed:</b><div class="text-2xl"> {{roadster_data.speed_mph|floatformat:2}} mph</div>
+              </li>
+              <li class="m-3">
+                <b>Miles from Earth</b><div class="counter text-2xl" data-target="{{roadster_data.earth_distance_mi|floatformat:2}}"> {{roadster_data.earth_distance_mi|add:"-8000000"}}</div> mi
+              </li>
+            </ul>
+            <ul>
+              <li class="m-3">
+                <b>Days:</b><div class="text-2xl"> {{roadster_data.period_days|floatformat:2}}</div> 
+              </li>
+              <li class="m-3">
+                <b>Miles from Mars</b><div class="counter text-2xl" data-target="{{roadster_data.mars_distance_mi|floatformat:2}}"> {{roadster_data.mars_distance_mi|add:"-8000000"}}</div> mi
+              </li>
+            </ul>
+            <ul>
+              <li class="m-3">
+                <b>Mass:</b><div class="text-2xl"> {{roadster_data.launch_mass_lbs}} lbs</div> 
+              </li>
+              <li class="">
+                <b>Launch Date:</b><div class="text-2xl"> February 6, 2018</div>
+              </li>
+            </ul>
+        </div>
+      <div class="text-center">
+        <ul>
+          <li class="m-3">
+            <a id="underlined-link" href="{{roadster_data.wikipedia}}" target="_blank" rel="noopener noreferrer" class="text-center text-lg text-blue-500">
+              Read More
+            </a>
+          </li>
+          <li class="m-3">
+            <a id="underlined-link" href="{{roadster_data.video}}" target="_blank" rel="noopener noreferrer" class="text-center text-lg text-blue-500">
+              Livestream
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- AlpineJS -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+<style>
+.fade-in {
+	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#underlined-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+#underlined-link:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: rgb(0, 0, 0);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+#underlined-link:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+@media screen and (max-height: 300px) {
+	ul {
+		margin-top: 40px;
+	}
+}
+</style>
+
+
+<script>
+// Selector
+const counters = document.querySelectorAll('.counter');
+// Main function
+for(let n of counters) {
+  const updateCount = () => {
+    const target = + n.getAttribute('data-target');
+    const count = + n.innerText;
+    const speed = 5000; // change animation speed here
+    const inc = target / speed; 
+    if(count < target) {
+      n.innerText = Math.ceil(count + inc);
+      setTimeout(updateCount, 1);
+    } else {
+      n.innerText = target;
+    }
+  }
+  updateCount();
+}
+</script>
+{% endblock content %}

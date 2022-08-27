@@ -1,0 +1,47 @@
+{% block content %}
+<div class="container mx-auto w-full h-full">
+    <div class="relative wrap overflow-hidden p-0 md:p-10 h-full">
+      <div class="hidden md:inline border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+      {% for history in history_data %}
+      {% if forloop.counter|divisibleby:2 %}
+      <!-- right timeline -->
+      <div class="mb-8 flex justify-center md:justify-between items-center w-full right-timeline">
+        <div class="hidden md:inline order-1 w-5/12"></div>
+        <div class="hidden md:inline z-20 flex items-center order-1 bg-white border-gray-800 border-2 shadow-xl w-8 h-8 rounded-full">
+          <h1 class="mx-auto font-semibold text-lg text-center text-grey-800">{{ forloop.counter }}</h1>
+        </div>
+        <div class="order-1 bg-white-400 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+          <h3 class="mb-3 font-bold text-gray-800 text-xl">{{history.title}}</h3>
+          <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100 mb-2">{{history.details}}</p>
+          <a href="{{history.links.article}}" class="text-sm leading-snug tracking-wide text-blue-600 text-opacity-100" target="_blank" rel="noopener noreferrer">Read Article</a>
+          <span
+            class="px-2 ml-2"
+            x-data="{date: new Date($el.innerText)}"
+            x-text="date.toLocaleString()"
+          >{{history.event_date_utc}}</span>
+        </div>
+      </div>
+      
+      {% else %}
+      <!-- left timeline -->
+      <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+        <div class="hidden md:inline order-1 w-5/12"></div>
+        <div class="hidden md:inline z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+          <h1 class="mx-auto text-white font-semibold text-center text-lg">{{ forloop.counter }}</h1>
+        </div>
+        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+          <h3 class="mb-3 font-bold text-white text-xl">{{history.title}}</h3>
+          <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100 mb-2">{{history.details}}</p>
+          <a href="{{history.links.article}}" class="text-sm leading-snug tracking-wide text-blue-600 text-opacity-100" target="_blank" rel="noopener noreferrer">Read Article</a>
+          <span
+            class="text-white px-2 ml-2"
+            x-data="{date: new Date($el.innerText)}"
+            x-text="date.toLocaleString()"
+          >{{history.event_date_utc}}</span>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

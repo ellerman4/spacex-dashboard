@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+  <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+    <main class="w-full flex-grow p-6">
+      <h1 class="text-3xl text-black pb-6 text-center">Launches</h1>
+      <div class="flex flex-col sm:flex-row gap-4 text-center justify-center">
+          <!-- First Row Grid -->
+          <ul>
+            <li class="m-3">
+              <b>Launches</b><div class="text-2xl"> {{ past_launch_data|length }}</div>
+            </li>
+            <li class="m-3">
+              <b>Miles from Earth</b><div class="text-2xl"> {{ failure_count }}</div>
+            </li>
+          </ul>
+          <ul>
+            <li class="m-3">
+              <b>Successful</b><div class="text-2xl"> {{ success_count }}</div> 
+            </li>
+            <li class="m-3">
+              <b>Miles from Mars</b><div class="text-2xl"> {{roadster_data.mars_distance_mi|add:"-8000000"}}</div>
+            </li>
+          </ul>
+          <ul>
+            <li class="m-3">
+              <b>Failed</b><div class="text-2xl text-red-500"> {{ failure_count }}</div> 
+            </li>
+            <li class="m-3 ">
+              <b>Next Launch</b>
+              <div>
+                  <span
+                      class="text-2xl "
+                      x-data="{date: new Date($el.innerText)}"
+                      x-text="date.toLocaleString().slice(0, 9);">
+                      {{ upcoming_launch_data.0.date_utc }}
+                  </span>
+              </div>
+            </li>
+          </ul>
+      </div>
+      {% include 'main/table_component.html' %}
+    </main>
+  </div>
+</div>
+
+<!-- AlpineJS -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+<style>
+  table { 
+    border-collapse: separate; 
+    border-spacing: 0 10px; 
+    margin-top: -10px; /* correct offset on first border spacing if desired */
+}
+td {
+    border: solid 1px;
+    border-style: solid none;
+}
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+</style>
+{% endblock content %}

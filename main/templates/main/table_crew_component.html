@@ -1,0 +1,184 @@
+<link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+	
+<div class="justify-center flex flex-row flex-wrap md:flex-nowrap gap-2">
+	<div class="flex bg-white">
+		<div class="col-span-12">
+			<div class="overflow-auto lg:overflow-visible ">
+				<h1 class="text-2xl text-black pb-6 text-center">NASA/Space X</h1>
+				<table class=" w-auto table text-gray-400 border-separate space-y-6 text-sm" >
+					<thead class="bg-gray-800 text-gray-500">
+						<tr>
+							<th class="p-3">Name</th>
+							<th class="p-3 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-left">Status</th>
+							<th class="p-3 text-left">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for crew in crew_data %}
+						{% if crew.agency == 'NASA' or crew.agency == 'SpaceX' %}
+						<tr class="bg-gray-800">
+							<td class="p-3">
+								<div class="flex align-items-center">
+									<a class="hidden md:inline" href="{{crew.image}}">
+										<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+									</a>
+									<div class="ml-3">
+										<div class="text-blue-500">{{crew.name}}</div>
+										<div class="text-gray-500">{{crew.agency}}</div>
+									</div>
+								</div>
+							</td>
+							<td class="p-3 font-bold hidden md:inline-block">
+								<a href="{{launch.links.patch.small}}">
+									{{ crew.launches|length }}
+								</a>
+							</td>
+							<td class="p-3">
+								{% if crew.status == 'active' %}
+								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								{% else %}
+								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
+								{% endif %}
+							</td>
+							<td class="p-3 text-blue-500">
+								<a href="{{crew.wikipedia}}" target="_blank" rel="noopener noreferrer">Wiki</a>
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="flex bg-white">
+		<div class="col-span-12">
+			<div class="overflow-auto lg:overflow-visible ">
+				<h1 class="text-2xl text-black pb-6 text-center">JAXA/ESA</h1>
+				<table class="table text-gray-400 border-separate space-y-6 text-sm">
+					<thead class="bg-gray-800 text-gray-500">
+						<tr>
+							<th class="p-3">Name</th>
+							<th class="p-3 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-left">Status</th>
+							<th class="p-3 text-left">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for crew in crew_data %}
+						{% if crew.agency == 'JAXA' or crew.agency == 'ESA' %}
+						<tr class="bg-gray-800">
+							<td class="p-3">
+								<div class="flex align-items-center">
+									<a class="hidden md:inline" href="{{crew.image}}">
+									<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+									</a>
+									<div class="ml-3">
+										<div class="text-blue-500">{{crew.name}}</div>
+										<div class="text-gray-500">{{crew.agency}}</div>
+									</div>
+								</div>
+							</td>
+							<td class="p-3 font-bold hidden md:inline-block">
+								<a href="{{launch.links.patch.small}}">
+									{{ crew.launches|length }}
+								</a>
+							</td>
+							<td class="p-3">
+								{% if crew.status == 'active' %}
+								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								{% else %}
+								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
+								{% endif %}
+							</td>
+							<td class="p-3 text-blue-500">
+								<a href="{{crew.wikipedia}}">Wiki</a>
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="flex bg-white">
+		<div class="col-span-12">
+			<div class="overflow-auto lg:overflow-visible ">
+				<h1 class="text-2xl text-black pb-6 text-center">Other</h1>
+				<table class="table text-gray-400 border-separate space-y-6 text-sm">
+					<thead class="bg-gray-800 text-gray-500">
+						<tr>
+							<th class="p-3">Name</th>
+							<th class="p-3 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-left">Status</th>
+							<th class="p-3 text-left">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for crew in crew_data %}
+						{% if crew.agency == 'Roscosmos' or crew.agency == 'Axiom Space' %}
+						<tr class="bg-gray-800">
+							<td class="p-3">
+								<div class="flex align-items-center">
+									<a class="hidden md:inline" href="{{crew.image}}">
+									<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+									</a>
+									<div class="ml-3">
+										<div class="text-blue-500">{{crew.name}}</div>
+										<div class="text-gray-500">{{crew.agency}}</div>
+									</div>
+								</div>
+							</td>
+							<td class="p-3 font-bold hidden md:inline-block">
+								<a href="{{launch.links.patch.small}}">
+									{{ crew.launches|length }}
+								</a>
+							</td>
+							<td class="p-3">
+								{% if crew.status == 'active' %}
+								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								{% else %}
+								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
+								{% endif %}
+							</td>
+							<td class="p-3 text-blue-500">
+								<a href="{{crew.wikipedia}}">Wiki</a>
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	tr td:nth-child(n+4),
+	tr th:nth-child(n+4) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+</style>
