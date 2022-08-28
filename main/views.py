@@ -1,10 +1,8 @@
 from django.shortcuts import render
 import urllib.request, json 
 # Create your views here.
-from django.http import HttpResponse
-import datetime, time
 import requests
-from apscheduler.schedulers.background import BackgroundScheduler
+
 
 # Caching function for json data
 def fetch_data(*, update: bool=False, json_cache: str, url: str):
@@ -27,9 +25,8 @@ def fetch_data(*, update: bool=False, json_cache: str, url: str):
     return json_data
 
 
-
 def index(request):
-
+    
     with urllib.request.urlopen('https://api.spacexdata.com/v5/launches/past') as url:
         past_launch = json.loads(url.read().decode())[-1]
 
