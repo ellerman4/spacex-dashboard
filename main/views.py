@@ -6,6 +6,24 @@ import requests
 
 # Caching function for json data
 def fetch_data(*, update: bool=False, json_cache: str, url: str):
+            
+    '''
+    Fetches data from the SpaceX API, or uses cached data if available
+
+    Note: Cached data is wiped out every hour of server runtime
+
+    Parameters
+    ----------
+        update : bool
+            Specifies whether to use cached JSON or make a new request
+
+        json_cache : str
+            Directory to cached data 
+
+        url : str
+            SpaceX API url endpoint
+    '''
+
     if update:
         json_data = None
 
@@ -19,6 +37,7 @@ def fetch_data(*, update: bool=False, json_cache: str, url: str):
 
     if not json_data:
         json_data = requests.get(url).json()
+
         with open(json_cache, 'w') as file:
             json.dump(json_data, file)
     
@@ -95,7 +114,7 @@ def launches(request):
     failure_count = len(past_launch_data) - success_count
 
     # Loop through launchdata, matching rocket id to rocket name
-    # Could be written more gracefully, but this is kind to the SpaceX API
+    # Could be written more gracefully, but page load times are adequate
     for launch in past_launch_data:
         for rocket in rocket_data:
             launch.update({'rocket_name': rocket['name']}) if launch['rocket'] == rocket['id'] else None
