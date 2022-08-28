@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load humanize %}
+{% load static %}
 {% block content %}
 
 <div class="w-full h-screen overflow-x-hidden border-t flex flex-col items-center">
@@ -8,7 +9,7 @@
         <!-- Ship Description Card -->
         <h1 class="text-center text-black font-semibold underline text-xl">{{roadster_data.name}}</h1>
         <div class="fade-in justify-center mt-3" style="text-align: -webkit-center; ">
-            <img class="drop-shadow-2xl  rounded-lg"  src="https://cdn.vox-cdn.com/thumbor/fbPdbfTjNkmvGwax7nPIlMeNaxU=/0x0:852x476/1200x800/filters:focal(358x170:494x306):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/58726287/tesla.0.gif" width="500"/>
+            <img class="drop-shadow-2xl  rounded-lg"  src="{% static 'imgs/roadster-gif.gif' %}" width="500"/>
         </div>
         <h1 class="text-center text-xl pt-4 m-3 font-semibold underline underline-offset-4">Description</h1>
         <p>{{roadster_data.details}}</p>
