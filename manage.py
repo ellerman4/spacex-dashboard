@@ -2,8 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from apscheduler.schedulers.background import BackgroundScheduler
-import atexit
+
 
 def main():
     """Run administrative tasks."""
@@ -18,11 +17,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-def update_data():
-    dir = 'cache/'
-    for f in os.listdir(dir):
-        os.remove(os.path.join(dir, f))
-
 if __name__ == '__main__':
     main()
-    update_data()
+
