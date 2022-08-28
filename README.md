@@ -1,8 +1,15 @@
 # spacex-dashboard
 wip, will update later
+
+
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/106990217/187046952-b5445b3d-358d-4535-a7c9-6a79cabd5623.png" width="700"/>
+  <img src="https://user-images.githubusercontent.com/106990217/187055035-3f1b96ec-65a4-49e8-a513-d44d78d1b386.png" width="400"/>
 </p>
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/106990217/187047002-ea25da50-a1bd-4518-8012-0b151c3f5fac.png" width="200"/>
+  <img src="https://user-images.githubusercontent.com/106990217/187055083-ceeb562c-3bed-45ef-937b-4d9b5af5455c.png" width="400"/>
 </p>
+
+
+
