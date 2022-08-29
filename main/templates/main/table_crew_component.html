@@ -10,10 +10,10 @@
 				<table class=" w-auto table text-gray-400 border-separate space-y-6 text-sm" >
 					<thead class="bg-gray-800 text-gray-500">
 						<tr>
-							<th class="p-3">Name</th>
-							<th class="p-3 text-left hidden md:inline-block">Launches</th>
-							<th class="p-3 text-left">Status</th>
-							<th class="p-3 text-left">Date</th>
+							<th class="p-3 text-gray-100">Name</th>
+							<th class="p-3 text-gray-100 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-gray-100 text-left">Status</th>
+							<th class="p-3 text-gray-100 text-left">Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -23,11 +23,11 @@
 							<td class="p-3">
 								<div class="flex align-items-center">
 									<a class="hidden md:inline" href="{{crew.image}}">
-										<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+										<img class="rounded-full h-[48px] w-[48px]  object-cover" src="{{crew.image}}" alt="SpaceX crew member image">
 									</a>
 									<div class="ml-3">
-										<div class="text-blue-500">{{crew.name}}</div>
-										<div class="text-gray-500">{{crew.agency}}</div>
+										<div class="text-white">{{crew.name}}</div>
+										<div class="text-white-100">{{crew.agency}}</div>
 									</div>
 								</div>
 							</td>
@@ -38,12 +38,12 @@
 							</td>
 							<td class="p-3">
 								{% if crew.status == 'active' %}
-								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								<span class="bg-green-400 text-gray-600 rounded-md px-2">Active</span>
 								{% else %}
 								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
 								{% endif %}
 							</td>
-							<td class="p-3 text-blue-500">
+							<td class="p-3 text-white">
 								<a href="{{crew.wikipedia}}" target="_blank" rel="noopener noreferrer">Wiki</a>
 							</td>
 						</tr>
@@ -62,10 +62,10 @@
 				<table class="table text-gray-400 border-separate space-y-6 text-sm">
 					<thead class="bg-gray-800 text-gray-500">
 						<tr>
-							<th class="p-3">Name</th>
-							<th class="p-3 text-left hidden md:inline-block">Launches</th>
-							<th class="p-3 text-left">Status</th>
-							<th class="p-3 text-left">Date</th>
+							<th class="p-3 text-gray-100">Name</th>
+							<th class="p-3 text-gray-100 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-gray-100 text-left">Status</th>
+							<th class="p-3 text-gray-100 text-left">Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -75,11 +75,11 @@
 							<td class="p-3">
 								<div class="flex align-items-center">
 									<a class="hidden md:inline" href="{{crew.image}}">
-									<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+										<img class="rounded-full h-[48px] w-[48px]  object-cover" src="{{crew.image}}" alt="SpaceX crew member image">
 									</a>
 									<div class="ml-3">
-										<div class="text-blue-500">{{crew.name}}</div>
-										<div class="text-gray-500">{{crew.agency}}</div>
+										<div class="text-white">{{crew.name}}</div>
+										<div class="text-white-100">{{crew.agency}}</div>
 									</div>
 								</div>
 							</td>
@@ -90,12 +90,12 @@
 							</td>
 							<td class="p-3">
 								{% if crew.status == 'active' %}
-								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								<span class="bg-green-400 text-gray-600 rounded-md px-2">Active</span>
 								{% else %}
 								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
 								{% endif %}
 							</td>
-							<td class="p-3 text-blue-500">
+							<td class="p-3 text-white">
 								<a href="{{crew.wikipedia}}">Wiki</a>
 							</td>
 						</tr>
@@ -114,10 +114,10 @@
 				<table class="table text-gray-400 border-separate space-y-6 text-sm">
 					<thead class="bg-gray-800 text-gray-500">
 						<tr>
-							<th class="p-3">Name</th>
-							<th class="p-3 text-left hidden md:inline-block">Launches</th>
-							<th class="p-3 text-left">Status</th>
-							<th class="p-3 text-left">Date</th>
+							<th class="p-3 text-gray-100">Name</th>
+							<th class="p-3 text-gray-100 text-left hidden md:inline-block">Launches</th>
+							<th class="p-3 text-gray-100 text-left">Status</th>
+							<th class="p-3 text-gray-100 text-left">Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -127,11 +127,11 @@
 							<td class="p-3">
 								<div class="flex align-items-center">
 									<a class="hidden md:inline" href="{{crew.image}}">
-									<img class="rounded-full h-12 w-12  object-cover" src="{{crew.image}}" alt="{{crew.image}}">
+										<img class="rounded-full h-[48px] w-[48px]  object-cover" src="{{crew.image}}" alt="SpaceX crew member image">
 									</a>
 									<div class="ml-3">
-										<div class="text-blue-500">{{crew.name}}</div>
-										<div class="text-gray-500">{{crew.agency}}</div>
+										<div class="text-white">{{crew.name}}</div>
+										<div class="text-white-100">{{crew.agency}}</div>
 									</div>
 								</div>
 							</td>
@@ -142,12 +142,12 @@
 							</td>
 							<td class="p-3">
 								{% if crew.status == 'active' %}
-								<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+								<span class="bg-green-400 text-gray-600 rounded-md px-2">Active</span>
 								{% else %}
 								<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
 								{% endif %}
 							</td>
-							<td class="p-3 text-blue-500">
+							<td class="p-3 text-white">
 								<a href="{{crew.wikipedia}}">Wiki</a>
 							</td>
 						</tr>
