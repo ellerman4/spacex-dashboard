@@ -4,7 +4,7 @@
 <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
     <div class="w-full overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="text-3xl text-black pb-6 ">Home</h1>
+            <h1 class="text-3xl text-black pb-6">Home</h1>
             <div class="flex flex-wrap" style="text-align: -webkit-center;">
                 <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
                     <div class="p-6 bg-white ">
@@ -12,13 +12,13 @@
                         <h1 class="text-3xl text-black pb-6 text-center ">Next Launch</h1>
                         <card id="test" class="flex relative h-[20rem] md:h-96 w-full md:w-[35rem] rounded-lg">
                             <!-- Background Image -->
-                            <img src="https://live.staticflickr.com/65535/49636202657_e81210a3ca_o.jpg" class="object-cover w-full h-full rounded-lg" />
+                            <img src="{% static 'imgs/card-1-background.webp' %}" alt="SpaceX launch background image" class="object-cover w-full h-full rounded-lg" />
                             
                             <!-- Content -->
                             <div class="absolute w-full h-full bottom-0 bg-gradient-to-r from-fuchsia-700/30 to-violet-700 rounded-lg flex flex-col items-center justify-center text-center">
                                 
                                 <!-- Company Logo -->
-                                <img class="ml-7 w-[55%] md:w-[200px] mb-2" src="https://i.imgur.com/HI0dPHS.png"/>
+                                <img class="ml-7 w-[55%] md:w-[200px] md:h-[30px] mb-2" src="{% static 'imgs/spacex-logo.webp' %}" alt="SpaceX company logo"/>
                                 <span class="font-bold text-center text-sm md:text-2xl text-gray-300">Launchpad</span>
                                 <h1 class="flex justify-center text-center text-xs md:text-2xl text-gray-300">{{next_launchpad.name}}</h1>
                                 <ul class="mb-4 flex justify-center text-center md:text-2xl text-gray-300">
@@ -26,10 +26,9 @@
                                     <li class="mx-6 flex flex-col"><span class="font-bold text-sm">Crew</span> {{ next_launch.crew|length }}</li>
                                     <li class="flex flex-col"><span class="font-bold text-sm">Failures</span> TBD</li>
                                 </ul>
-                                <!-- Quotes -->
                                 <!-- Photo -->
                                 <div class="w-[20%] lg:w-auto" style="text-align: -webkit-center;">
-                                    <img src="{{next_launch.links.patch.small}}" class="rounded-full border-2 " width="100" height="100"/>
+                                    <img src="{{next_launch.links.patch.small}}" alt="SpaceX launch badge image" class="rounded-full border-2 " width="100" height="100"/>
                                 </div>
                                 <!-- Title -->
                                 <p class="text-base md:text-xl font-bold px-14 text-gray-300 ">
@@ -37,11 +36,11 @@
                                 </p>
                                 {% if not next_launch.links.article %}
                                 <a href="{{next_launch.links.reddit.campaign}}" class="text-sm font-light px-14 text-blue-300 " target="_blank" rel="noopener noreferrer">
-                                    Read More
+                                    Reddit Discussion
                                 </a>
                                 {% else %}
                                 <a href="{{next_launch.links.article}}" class="text-sm font-light px-14 text-blue-300 " target="_blank" rel="noopener noreferrer">
-                                    Read More
+                                    SpaceX Launch Article
                                 </a>
                                 {% endif %}
                                 <!-- Display the countdown timer in an element -->
@@ -58,13 +57,13 @@
                         <card class="flex relative h-[20rem] w-full md:h-96  md:w-[35rem] rounded-lg">
 
                             <!-- Background Image -->
-                            <img src="https://live.staticflickr.com/65535/49635401403_96f9c322dc_o.jpg" class="object-cover w-full h-full rounded-lg" />
+                            <img src="{% static 'imgs/card-2-background.webp' %}" alt="SpaceX launch background image" class="object-cover w-full h-full rounded-lg" />
                             
                             <!-- Content -->
                             <div class="absolute w-full h-full bottom-0 bg-gradient-to-r from-fuchsia-700/30 to-violet-700 rounded-lg flex flex-col items-center justify-center text-center">
                             
                                 <!-- Company Logo -->
-                                <img class="ml-7 w-[55%] md:w-[200px] mb-2" src="https://i.imgur.com/HI0dPHS.png"/>
+                                <img class="ml-7 w-[55%] md:w-[200px] md:h-[30px] mb-2" src="{% static 'imgs/spacex-logo.webp' %}" alt="SpaceX company logo"/>
                                 <span class="font-bold text-center text-sm md:text-2xl text-gray-300">Launchpad</span>
                                 <h1 class="flex justify-center text-center text-xs md:text-2xl text-gray-300">{{past_launchpad.name}}</h1>
                                 <ul class="mb-4 flex justify-center text-center md:text-2xl text-gray-300">
@@ -72,12 +71,9 @@
                                     <li class="mx-6 flex flex-col"><span class="font-bold text-sm">Crew</span> {{ past_launch.crew|length }}</li>
                                     <li class="flex flex-col"><span class="font-bold text-sm">Failures</span> {{ past_launch.failures|length }}</li>
                                 </ul>
-                                <!-- Quotes -->
-
-                        
                                 <!-- Photo -->
                                 <div class="w-[20%] lg:w-auto  justify-center" style="text-align: -webkit-center;">
-                                    <img src="{{past_launch.links.patch.small}}" class="rounded-full border-2" width="100" height="100"/>
+                                    <img src="{{past_launch.links.patch.small}}" alt="SpaceX launch badge image" class="rounded-full border-2" width="100" height="100"/>
                                 </div>
                         
                                 <!-- Title -->
@@ -87,11 +83,11 @@
                                 
                                 {% if not past_launch.links.article %}
                                 <a href="{{past_launch.links.reddit.campaign}}" class="text-sm font-light px-14 text-blue-300" target="_blank" rel="noopener noreferrer">
-                                    Read More
+                                    Reddit Discussion
                                 </a>
                                 {% else %}
                                 <a href="{{past_launch.links.article}}" class="text-sm font-light px-14 text-blue-300" target="_blank" rel="noopener noreferrer">
-                                    Read More
+                                    SpaceX Launch Article
                                 </a>
                                 {% endif %}
                                 
@@ -106,7 +102,7 @@
             </div>
             <div class="w-full mt-12">
                 <p class="text-xl pb-3 flex items-center">
-                    <h1 class="text-3xl text-black pb-6 text-center ">Crew</h1>
+                    <h1 class="text-3xl text-black pb-6 text-center md:text-left ">Crew</h1>
                 </p>
                 <div class="bg-white overflow-auto">
                     {% include 'main/table_crew_component.html' %}
@@ -120,11 +116,6 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- Font Awesome -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-<!-- ChartJS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-<script>
-    var next_launch_date = "{{next_launch.date_utc}}";
-</script>
+<script>var next_launch_date = "{{next_launch.date_utc}}";</script>
 <script src="{% static 'js/counter.js' %}"></script>
 {% endblock content %}
