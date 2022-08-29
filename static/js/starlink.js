@@ -6,8 +6,8 @@ const timeLogger = document.getElementById('time-log');
 
 const world = Globe()
   (document.getElementById('chart'))
-  .globeImageUrl('//unpkg.com/three-globe@2.24.7/example/img/earth-blue-marble.jpg')
-  .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+  .globeImageUrl('/static/imgs/earth-blue-marble.webp')
+  .bumpImageUrl('/static/imgs/earth-topology.webp')
   .objectLat('lat')
   .objectLng('lng')
   .objectAltitude('alt')
