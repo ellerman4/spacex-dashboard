@@ -9,7 +9,7 @@
         <!-- Ship Description Card -->
         <h1 class="text-center text-black font-semibold underline text-xl">{{roadster_data.name}}</h1>
         <div class="fade-in justify-center mt-3" style="text-align: -webkit-center; ">
-            <img class="drop-shadow-2xl  rounded-lg"  src="{% static 'imgs/roadster-gif.webp' %}" width="500"/>
+            <img class="drop-shadow-2xl  rounded-lg"  src="{% static 'imgs/roadster-gif.webp' %}" alt="roadster in space gif" width="500" height="280"/>
         </div>
         <h1 class="text-center text-xl pt-4 m-3 font-semibold underline underline-offset-4">Description</h1>
         <p>{{roadster_data.details}}</p>
@@ -48,12 +48,12 @@
       <div class="text-center">
         <ul>
           <li class="m-3">
-            <a id="underlined-link" href="{{roadster_data.wikipedia}}" target="_blank" rel="noopener noreferrer" class="text-center text-lg text-blue-500">
-              Read More
+            <a id="underlined-link-roadster" href="{{roadster_data.wikipedia}}" target="_blank" rel="noopener noreferrer" class="underlined-link text-center text-lg text-blue-600">
+              Roadster Wiki
             </a>
           </li>
           <li class="m-3">
-            <a id="underlined-link" href="{{roadster_data.video}}" target="_blank" rel="noopener noreferrer" class="text-center text-lg text-blue-500">
+            <a id="underlined-link-livestream" href="{{roadster_data.video}}" target="_blank" rel="noopener noreferrer" class="underlined-link text-center text-lg text-blue-600">
               Livestream
             </a>
           </li>
@@ -80,7 +80,7 @@
   }
 }
 
-#underlined-link {
+.underlined-link {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
@@ -88,7 +88,7 @@
   padding: 15px 20px;
   position: relative;
 }
-#underlined-link:after {    
+.underlined-link:after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -100,7 +100,7 @@
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-#underlined-link:hover:after { 
+.underlined-link:hover:after { 
   width: 100%; 
   left: 0; 
 }

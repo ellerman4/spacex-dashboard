@@ -7,16 +7,16 @@
     <div  class="mt-20 text-center ">
         <div onclick="document.getElementById('myModal{{forloop.counter}}').showModal()" id="btn"  class="md:ml-4 h-[80%] mb-10 p-8 w-96 cursor-pointer rounded-3xl border-gray-800 md:border-0 transition duration-300 ease-in-out md:hover:scale-105 md:hover:drop-shadow-2xl">
             <div class="">
-                <img src="{{rocket.flickr_images.0}}" class="mx-auto h-64 rounded-[6px]" />
+                <img src="{{rocket.flickr_images.0}}" class="mx-auto h-64 rounded-[6px]" alt="{{rocket.name}} rocket launch" />
             </div>
             <div class="text-center">
                 <h3 class="text-center text-4xl font-bold">{{rocket.name}}</h3>
                 {% if rocket.active == True %}
-                <span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+                <span class="bg-green-400 text-gray-600 rounded-md px-2">Active</span>
                 {% elif rocket.name == 'Starship' %}
-                <span class="bg-yellow-400 text-gray-500 rounded-md px-2">In Development</span>
+                <span class="bg-yellow-400 text-gray-600 rounded-md px-2">In Development</span>
                 {% else %}
-                <span class="bg-red-400 text-gray-50 rounded-md px-2">Inactive</span>
+                <span class="bg-red-400 text-white rounded-md px-2">Inactive</span>
                 {% endif %}
             </div>
                 <ul class="mt-2 mb-10 flex justify-center text-center text-2xl">
@@ -28,7 +28,7 @@
                 {{rocket.description}}
             </div>
         </div>
-        <a id="underlined-link" class="mb-10 text-center text-xl text-blue-500" href="{{rocket.wikipedia}}" target="_blank" rel="noopener noreferrer">Learn More</a>
+        <a id="underlined-link-{{rocket.name}}" class="underlined-link mb-10 text-center text-xl text-blue-600" href="{{rocket.wikipedia}}" target="_blank" rel="noopener noreferrer">{{rocket.name}} Wiki</a>
     </div>
     <!-- End Rocket Card -->
 
@@ -113,7 +113,7 @@
                                 {% for image in rocket.flickr_images %}
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                                    <img src="{{image}}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                                    <img src="{{image}}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" loading="lazy" alt="...">
                                 </div> 
                                 {% endfor %}
                             </div>
@@ -138,7 +138,6 @@
                                 </span>
                             </button>
                         </div>
-                        <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
                     </div>
                 </div>
             </div>
@@ -151,6 +150,8 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- Font Awesome -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+<!-- Flowbite -->
+<script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
 <style>
     dialog[open] {
@@ -175,7 +176,7 @@
     }
   } 
 
-  #underlined-link {
+  .underlined-link {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
@@ -183,7 +184,7 @@
   padding: 15px 20px;
   position: relative;
 }
-#underlined-link:after {    
+.underlined-link:after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -195,7 +196,7 @@
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-#underlined-link:hover:after { 
+.underlined-link:hover:after { 
   width: 100%; 
   left: 0; 
 }
