@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 import urllib.request, json 
 # Create your views here.
 import requests
+import re
 
 
 # Caching function for json data
@@ -72,6 +73,11 @@ def index(request):
         json_cache = 'cache/crew.json',
         url = 'https://api.spacexdata.com/v4/crew'
     )
+
+    # Adds the 'small' modifier to the imgur link, to return a thumbnail image
+    # instead of a large full sized image
+    for crew in crew_data:
+        crew['image'] = re.sub('.png', 's.png', crew['image'], count=1)
 
     context = {
         'next_launch': next_launch,
