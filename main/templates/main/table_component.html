@@ -47,11 +47,7 @@
 										{% endif %}
 									</td>
 									<td class="p-3 hidden md:table-cell">
-										<span
-											x-data="{date: new Date($el.innerText)}"
-											x-text="date.toLocaleString()">
-											{{launch.date_utc}}
-										</span>
+										{{launch.date_utc|slice:"2:10"}}
 									</td>
 								</tr>
 								{% endfor %}
@@ -105,11 +101,7 @@
 										<span class="bg-yellow-200 text-gray-800 rounded-md px-2">N/A</span>
 									</td>
 									<td class="p-3 hidden md:table-cell">
-										<span
-											x-data="{date: new Date($el.innerText)}"
-											x-text="date.toLocaleString()">
-											{{launch.date_utc}}
-										</span>
+										{{launch.date_utc|slice:"2:10"}}
 									</td>
 								</tr>
 								{% endfor %}
