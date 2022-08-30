@@ -36,10 +36,12 @@ Create and activate a virtual environment
 ...\> env\Scripts\activate.bat
 
 ```
-Pip install Django
+Pip install Django and django_compressor
 ```cmd
 
 ...\> pip install django
+
+...\> pip install django_compressor
 
 ```
 
