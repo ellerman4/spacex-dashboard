@@ -1,3 +1,4 @@
+{% load compress %}
 <link
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
@@ -159,6 +160,8 @@
 		</div>
 	</div>
 </div>
+
+{% compress css inline %}
 <style>
 	.table {
 		border-spacing: 0 15px;
@@ -182,3 +185,4 @@
 		border-radius: .625rem 0 0 .625rem;
 	}
 </style>
+{% endcompress %}

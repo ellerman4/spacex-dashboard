@@ -49,7 +49,8 @@
 {% compress js inline %}
 <script src="{% static 'js/table-collapse.js' %}"></script>
 {% endcompress %}
-  
+
+{% compress css inline %}
 <style>
 table { 
   border-collapse: separate; 
@@ -71,4 +72,6 @@ td:last-child {
     border-top-right-radius: 10px; 
 }
 </style>
+{% endcompress %}
+
 {% endblock content %}

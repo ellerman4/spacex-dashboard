@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load humanize %}
+{% load compress %}
 {% block content %}
 <div id="center-test" class="center flex flex-col md:flex-row">
 {% for rocket in rockets %}
@@ -153,6 +154,7 @@
 <!-- Flowbite -->
 <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
+{% compress css inline %}
 <style>
     dialog[open] {
     animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
@@ -212,4 +214,6 @@
     }
 }
 </style>
+{% endcompress %}
+
 {% endblock content %}
