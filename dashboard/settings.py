@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#4o-b6lb7z*j(d^x6ek5+*te*!*)dvd%(b6=881q3rn314rai-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['91f0-66-128-240-245.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['41b2-66-128-240-245.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ROOT_URLCONF = 'dashboard.urls'
 
