@@ -104,6 +104,13 @@ PERMISSIONS_POLICY = {
     "usb": [],
 }
 
+## Security settings for deployment
+## Set to true for production
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
