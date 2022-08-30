@@ -1,5 +1,3 @@
-// Currently using data from globe.gl example, will update with starlink TLE later
-
 var countDownDate = new Date(next_launch_date).getTime();
     
 // Update the count down every 1 second

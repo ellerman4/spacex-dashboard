@@ -1,3 +1,4 @@
+// Currently using data from globe.gl example, will update with starlink TLE later
 const EARTH_RADIUS_KM = 6371; // km
 const SAT_SIZE = 100; // km
 const TIME_STEP = 3 * 1000; // per frame
