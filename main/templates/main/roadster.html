@@ -9,7 +9,7 @@
         <!-- Ship Description Card -->
         <h1 class="text-center text-black font-semibold underline text-xl">{{roadster_data.name}}</h1>
         <div class="fade-in justify-center mt-3" style="text-align: -webkit-center; ">
-            <img class="drop-shadow-2xl  rounded-lg"  src="{% static 'imgs/roadster-gif.webp' %}" alt="roadster in space gif" width="500" height="280"/>
+            <img class="drop-shadow-2xl  rounded-lg" loading="lazy" src="{% static 'imgs/roadster-gif.webp' %}" alt="roadster in space gif" width="500" height="280"/>
         </div>
         <h1 class="text-center text-xl pt-4 m-3 font-semibold underline underline-offset-4">Description</h1>
         <p>{{roadster_data.details}}</p>
