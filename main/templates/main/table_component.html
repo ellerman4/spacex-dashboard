@@ -7,7 +7,7 @@
 				<div class="col-span-12">
 					<div class="overflow-auto lg:overflow-visible ">
 						<h1 class="text-3xl text-black pb-6 text-center">Past</h1>
-						<table class="table text-gray-400 border-separate space-y-6 text-xs md:text-sm">
+						<table id="past-launches-table" class="tablesorter text-gray-400 border-separate space-y-6 text-xs md:text-sm">
 							<thead class="bg-gray-800 text-gray-500">
 								<tr>
 									<th class="p-3" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Name</th>
@@ -22,7 +22,7 @@
 								<tr class="bg-gray-800">
 									<td class="p-3">
 										<div class="flex align-items-center">
-											<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="{{launch.links.patch.small}}" alt="{{crew.image}}">
+											<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="{{launch.links.patch.small}}" loading="lazy" alt="{{crew.image}}">
 											<div class="ml-3">
 												{% if launch.links.article == None %}
 												<div class="text-gray-500">{{launch.name}}</div>
@@ -81,9 +81,9 @@
 									<td class="p-3">
 										<div class="flex align-items-center">
 											{% if launch.links.patch.small %}
-												<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="{{launch.links.patch.small}}" alt="{{launch.links.patch.large}}">
+												<img class="hidden md:inline rounded-full h-12 w-12 object-cover" loading="lazy" src="{{launch.links.patch.small}}" alt="{{launch.links.patch.large}}">
 											{% else %}
-												<img class="hidden md:inline rounded-full h-12 w-12  object-cover" src="https://imgur.com/BrW201S.png" alt="{{launch.links.patch.large}}">
+												<img class="hidden md:inline rounded-full h-12 w-12 object-cover" loading="lazy" src="https://imgur.com/BrW201S.png" alt="{{launch.links.patch.large}}">
 											{% endif %}
 											<div class="ml-3">
 												{% if launch.links.article == None %}
