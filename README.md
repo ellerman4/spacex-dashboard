@@ -70,4 +70,9 @@ The above startup command includes a scheduled function to delete the cached jso
 ##
 </br>
 <p align="center">
+<a href="https://github.com/ellerman4/"><img alt="alt_text" width="400px" src="https://user-images.githubusercontent.com/106990217/187327102-c4e9ef1b-3c14-4b9f-b814-c6d5b2ae8529.png" /></a></p>
+
+##
+</br>
+<p align="center">
 <a href="https://github.com/ellerman4/"><img alt="alt_text" width="400px" src="https://user-images.githubusercontent.com/106990217/187055083-ceeb562c-3bed-45ef-937b-4d9b5af5455c.png" /></a></p>
