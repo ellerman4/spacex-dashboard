@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 {% load humanize %}
 {% load static %}
+{% load compress %}
 {% block content %}
 
 <div class="w-full h-screen overflow-x-hidden border-t flex flex-col items-center">
@@ -111,6 +112,8 @@
 }
 </style>
 
-
+{% compress js inline %}
 <script src="{% static 'js/countup.js' %}"></script>
+{% endcompress %}
+
 {% endblock content %}

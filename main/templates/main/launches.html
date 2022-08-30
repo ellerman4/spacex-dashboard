@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load compress %}
 {% block content %}
 <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
   <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
@@ -45,8 +46,10 @@
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Load table-collapse.js -->
+{% compress js inline %}
 <script src="{% static 'js/table-collapse.js' %}"></script>
-
+{% endcompress %}
+  
 <style>
 table { 
   border-collapse: separate; 

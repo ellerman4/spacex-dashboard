@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load compress %}
 {% block content %}
 <style>
   #time-log {
@@ -21,7 +22,9 @@
 <script src="//unpkg.com/three"></script>
 <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
 <script src="//unpkg.com/globe.gl"></script>
+{% compress js inline %}
 <script src="{% static 'js/starlink.js' %}"></script>
+{% endcompress %}
 <!-- AlpineJS -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- Font Awesome -->
