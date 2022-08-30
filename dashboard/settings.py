@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'django.contrib.humanize',
+    'compressor',
 ]
 
 
@@ -129,6 +130,38 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = BASE_DIR / 'static/imgs'
+
+## django-compressor settings, for speeding up page load times by minifying CSS and JavaScript files.
+# Documentation: <https://django-compressor.readthedocs.io/en/latest/>
+
+# COMPRESS_ENABLED must be set to true if DEBUG = True for development
+COMPRESS_ENABLED = True
+
+# Where to save the minified js files, only used if not compressing inline js
+COMPRESS_OUTPUT_DIR = 'min/'
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
+COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
+
+# Storage type for reading minified js
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+
+# Root pointing to base javascript files
+COMPRESS_ROOT = BASE_DIR / 'static/js'
+
+# Static file finders must be set with defaults and then added to
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
+# Add compressor file finder to STATICFILES_FINDERS (must be tuple)
+STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
