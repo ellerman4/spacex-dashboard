@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load static %}
 {% block content %}
 <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
   <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
@@ -29,12 +30,9 @@
             <li class="m-3 ">
               <b>Next Launch</b>
               <div>
-                  <span
-                      class="text-2xl "
-                      x-data="{date: new Date($el.innerText)}"
-                      x-text="date.toLocaleString().slice(0, 9);">
-                      {{ upcoming_launch_data.0.date_utc }}
-                  </span>
+                <p class="text-2xl">
+                  {{ upcoming_launch_data.0.date_utc|slice:"10" }}
+                </p>
               </div>
             </li>
           </ul>
@@ -44,12 +42,10 @@
   </div>
 </div>
 
-<!-- AlpineJS -->
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<!-- Font Awesome -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 <!-- JQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Load table-collapse.js -->
+<script src="{% static 'js/table-collapse.js' %}"></script>
 
 <style>
 table { 
@@ -72,43 +68,4 @@ td:last-child {
     border-top-right-radius: 10px; 
 }
 </style>
-
-<script>
-$(function() {
-  /* Get total rows, num shown intitially, and more shown on click*/
-  var numRows = $('#past-launches-table').find('tr').length;
-  var SHOWN = 9;
-  var MORE = 20;
-
-  /* get how many more can be shown */
-  var getNumMore = function(c){var a=MORE,b=numRows-c;return b<a&&(a=b),a}
-
-  /* how many are shown */
-  var getInitialNumShown = function(){var a=SHOWN;return numRows<a&&(a=numRows),a}
-  /* set how many are initially shown */
-  var numShown = getInitialNumShown();
-
-  /* set the numMore if less than 20 */
-  var numMore = getNumMore(numShown);
-
-  /* set more html */
-  if (numMore > 0) {
-    var more_html = '<p class="text-center"><button id="more">Show <span style="font-weight: bold;">' + numMore + '</span> More...</button></p>';
-    $('#past-launches-table').find('tr:gt(' + (numShown - 1) + ')').hide().end().after(more_html);
-  }
-  $('#more').click(function() {
-    /* determine how much more we should update */
-    numMore = getNumMore(numShown);
-    /* update num shown */
-    numShown += numMore;
-    $('#past-launches-table').find('tr:lt(' + numShown + ')').show();
-
-    /* determine if to show more and how much left over */
-    numMore = getNumMore(numShown);
-    
-    numMore>0?$("#more span").html(numMore):$("#more").remove()
-
-  });
-});
-</script>
 {% endblock content %}
