@@ -1,4 +1,3 @@
-// Currently using data from globe.gl example, will update with starlink TLE later
 const EARTH_RADIUS_KM = 6371; // km
 const SAT_SIZE = 100; // km
 const TIME_STEP = 3 * 1000; // per frame
@@ -20,7 +19,7 @@ const satGeometry = new THREE.OctahedronGeometry(SAT_SIZE * world.getGlobeRadius
 const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
 world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
-fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/space-track-leo.txt').then(r => r.text()).then(rawData => {
+fetch('https://raw.githubusercontent.com/ellerman4/data_test/main/starlink.txt').then(r => r.text()).then(rawData => {
   const tleData = rawData.replace(/\r/g, '')
     .split(/\n(?=[^12])/)
     .filter(d => d)
