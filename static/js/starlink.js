@@ -19,7 +19,7 @@ const satGeometry = new THREE.OctahedronGeometry(SAT_SIZE * world.getGlobeRadius
 const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
 world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
-fetch('https://raw.githubusercontent.com/ellerman4/data_test/main/starlink.txt').then(r => r.text()).then(rawData => {
+fetch('https://raw.githubusercontent.com/ellerman4/spacex-dashboard/master/cache/starlink.txt').then(r => r.text()).then(rawData => {
   const tleData = rawData.replace(/\r/g, '')
     .split(/\n(?=[^12])/)
     .filter(d => d)
