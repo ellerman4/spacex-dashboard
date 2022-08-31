@@ -2,19 +2,17 @@
 {% load static %}
 {% load compress %}
 {% block content %}
-
+<!--  globe.gl element  -->
 <div id="chart"></div>
+<!--  time logger  -->
 <div id="time-log"></div>
-<script src="//unpkg.com/three"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.143.0/three.min.js"></script>
 <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
 <script src="//unpkg.com/globe.gl"></script>
 {% compress js inline %}
 <script src="{% static 'js/starlink.js' %}"></script>
 {% endcompress %}
-<!-- AlpineJS -->
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<!-- Font Awesome -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
 {% compress css inline %}
 <style>

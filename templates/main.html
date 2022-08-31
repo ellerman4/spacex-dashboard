@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,6 +11,7 @@
     crew data, starlink data, and the history of spacex.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  {% compress js inline %}
   <script>
     tailwind.config = {
       theme: {
@@ -36,6 +38,8 @@
       }
     }
   </script>
+  {% endcompress %}
+  {% compress css inline %}
   <style>
     @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
     .font-family-karla { font-family: karla; }
@@ -47,6 +51,7 @@
     .nav-item:hover { background: #1947ee; }
     .account-link:hover { background: #3d68ff; }
   </style>
+  {% endcompress %}
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
 <body class="bg-white font-family-karla flex">
