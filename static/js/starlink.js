@@ -8,6 +8,7 @@ const world = Globe()
   (document.getElementById('chart'))
   .globeImageUrl('/static/imgs/earth-blue-marble.webp')
   .bumpImageUrl('/static/imgs/earth-topology.webp')
+  .backgroundImageUrl('/static/imgs/nightsky.webp')
   .objectLat('lat')
   .objectLng('lng')
   .objectAltitude('alt')
@@ -19,6 +20,31 @@ const satGeometry = new THREE.OctahedronGeometry(SAT_SIZE * world.getGlobeRadius
 const satMaterial = new THREE.MeshLambertMaterial({ color: 'palegreen', transparent: true, opacity: 0.7 });
 world.objectThreeObject(() => new THREE.Mesh(satGeometry, satMaterial));
 
+// Add globe rotation
+world.controls().autoRotate = true;
+world.controls().autoRotateSpeed = 0.35;
+
+// Set clouds settings
+const CLOUDS_IMG_URL = '/static/imgs/fair-clouds.webp';
+const CLOUDS_ALT = 0.004;
+const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
+
+// Load cloud texture
+new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
+  const clouds = new THREE.Mesh(
+    new THREE.SphereBufferGeometry(world.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
+    new THREE.MeshPhongMaterial({ map: cloudsTexture, transparent: true })
+  );
+  world.scene().add(clouds);
+
+  (function rotateClouds() {
+    clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
+    requestAnimationFrame(rotateClouds);
+  })();
+});
+
+
+// Main fetch function
 fetch('https://raw.githubusercontent.com/ellerman4/spacex-dashboard/master/cache/starlink.txt').then(r => r.text()).then(rawData => {
   const tleData = rawData.replace(/\r/g, '')
     .split(/\n(?=[^12])/)
