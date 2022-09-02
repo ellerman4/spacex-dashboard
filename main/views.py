@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.http import StreamingHttpResponse
 import urllib.request, json 
 # Create your views here.
 import requests
@@ -161,6 +162,12 @@ def history(request):
 
     return render(request, 'main/history.html', {'history_data': history_data})
 
+
+# For hosting our starlink TLE text file in raw format
+# so that our starlink.js' fetch request functions properly
+def starlink_txt(request):
+    r = requests.get('https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=starlink&FORMAT=tle', stream=True)
+    return StreamingHttpResponse(streaming_content=r.raw)
 
 def starlink(request):
     return render(request, 'main/starlink.html', {})
