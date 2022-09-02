@@ -10,4 +10,5 @@ urlpatterns = [
     path('rockets/', views.rockets, name='rockets'),
     path('roadster/', views.roadster, name='roadster'),
     path('extra/', views.extra, name='extra'),
+    path('starlink_txt/', views.starlink_txt, name='starlink_txt'),
 ]
