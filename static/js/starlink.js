@@ -46,7 +46,7 @@ new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
 
 // Main fetch function
 // TLE data is stored in a dedicated view/url that serves a raw txt file
-fetch('../starlink_txt/').then(r => r.text()).then(rawData => {
+fetch('../starlink_txt/', { cache: "force-cache" }).then(r => r.text()).then(rawData => {
   const tleData = rawData.replace(/\r/g, '')
     .split(/\n(?=[^12])/)
     .filter(d => d)
