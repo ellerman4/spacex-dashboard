@@ -15,14 +15,7 @@ class Command(BaseCommand):
         for f in os.listdir(dir):
             os.remove(os.path.join(dir, f))
 
-    def update_starlink():
-        data = requests.get('https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=starlink&FORMAT=tle').text
-        text_file = open("cache/starlink.txt", "w")
-        n = text_file.write(data)
-        text_file.close()
-
     schedule.every(1).hours.do(update_data)
-    schedule.every(1).hours.do(update_starlink)
 
     while True:
         schedule.run_pending()
