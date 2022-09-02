@@ -1,6 +1,6 @@
 const EARTH_RADIUS_KM = 6371; // km
 const SAT_SIZE = 100; // km
-const TIME_STEP = 3 * 1000; // per frame
+const TIME_STEP = 3 * 500; // per frame
 
 const timeLogger = document.getElementById('time-log');
 
@@ -45,7 +45,8 @@ new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
 
 
 // Main fetch function
-fetch('https://raw.githubusercontent.com/ellerman4/spacex-dashboard/master/cache/starlink.txt').then(r => r.text()).then(rawData => {
+// TLE data is stored in a dedicated view/url that serves a raw txt file
+fetch('../starlink_txt/').then(r => r.text()).then(rawData => {
   const tleData = rawData.replace(/\r/g, '')
     .split(/\n(?=[^12])/)
     .filter(d => d)
