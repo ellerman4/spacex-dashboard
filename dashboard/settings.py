@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'csp.middleware.CSPMiddleware',
+    'main.middleware.report_uri_middleware.ReportUriMiddleware',
 ]
 
 
@@ -214,8 +215,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CSP settings
 
 # uri to report policy violations
-# uri to report policy violations
-CSP_REPORT_URI = '<add your reporting uri>'
+CSP_REPORT_URI = str(os.getenv('CSP_REPORT_URI'))   # include in .env variable
 
 # default source as self
 CSP_DEFAULT_SRC = ("'self'", )
