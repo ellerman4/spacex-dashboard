@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/106990217/187055035-3f1b96ec-65a4-49e8-a513-d44d78d1b386.png" width="400px"></p>
 
-<h1 align="center">SpaceX Dashboard</h1>
+<a href="https://ellerman5.pythonanywhere.com/"><h1 align="center">SpaceX Dashboard</h1></a>
 
 <h3 align="center">
 A SpaceX Dashboard site built with the <a href="https://github.com/r-spacex/SpaceX-API">SpaceX API</a>.
@@ -44,6 +44,8 @@ Pip install Django, django_compressor, and django-permissions-policy
 ...\> pip install django_compressor
 
 ...\> pip install django-permissions-policy
+
+...\> pip install django-csp
 
 ```
 
