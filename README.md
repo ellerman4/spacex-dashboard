@@ -2,6 +2,10 @@
 
 <a href="https://ellerman5.pythonanywhere.com/"><h1 align="center">SpaceX Dashboard</h1></a>
 
+<h5 align="center" color="yellow">
+  <i style='color:red'>currently serving from cached data due to SpaceX API downtime</i>
+</h5>
+
 <h3 align="center">
 A SpaceX Dashboard site built with the <a href="https://github.com/r-spacex/SpaceX-API">SpaceX API</a>.
 </h3>
