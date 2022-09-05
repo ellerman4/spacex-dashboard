@@ -47,9 +47,12 @@ def fetch_data(*, update: bool=False, json_cache: str, url: str):
 
 
 def index(request):
-    
-    with urllib.request.urlopen('https://api.spacexdata.com/v5/launches/past') as url:
-        past_launch = json.loads(url.read().decode())[-1]
+
+    past_launch: dict = fetch_data(
+        update=False,
+        json_cache = 'cache/past.json',
+        url = 'https://api.spacexdata.com/v5/launches/past'
+    )[-1]
 
     past_launchpad: dict = fetch_data(
         update=False,
