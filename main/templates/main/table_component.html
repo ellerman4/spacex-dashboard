@@ -40,8 +40,8 @@
 										{{launch.launchpad_name}}
 									</td>
 									<td class="p-3 rounded-r-[8px] md:rounded-none">
-										{% if crew.status == 'active' %}
-										<span class="bg-green-400 text-gray-50 rounded-md px-2">Active</span>
+										{% if launch.success == True %}
+										<span class="bg-green-400 text-gray-50 rounded-md px-2">Success</span>
 										{% else %}
 										<span class="bg-red-400 text-gray-50 rounded-md px-2">Failure</span>
 										{% endif %}
