@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/106990217/187055035-3f1b96ec-65a4-49e8-a513-d44d78d1b386.png" width="400px"></p>
 
-<a href="https://ellerman5.pythonanywhere.com/"><h1 align="center">SpaceX Dashboard</h1></a>
+<a href="https://www.spacex-dashboard.app/"><h1 align="center">SpaceX Dashboard</h1></a>
 
 <h5 align="center" color="yellow">
   <i style='color:red'>currently serving from cached data due to SpaceX API downtime</i>
