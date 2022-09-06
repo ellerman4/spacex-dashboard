@@ -45,6 +45,8 @@
 
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>var show_count = parseInt("{{upcoming_launch_data|length}}");</script>
 <!-- Load table-collapse.js -->
 {% compress js inline %}
 <script src="{% static 'js/table-collapse.js' %}"></script>

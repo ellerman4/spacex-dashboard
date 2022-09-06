@@ -6,7 +6,7 @@ $(function() {
     var getNumMore = function(c){var a=20,b=numRows-c;return b<a&&(a=b),a}
 
     /* how many items to show initially */
-    var getInitialNumShown = function(){var a=9;return numRows<a&&(a=numRows),a}
+    var getInitialNumShown = function(){var a=show_count+1;return numRows<a&&(a=numRows),a}
     /* set how many are initially shown */
     var numShown = getInitialNumShown();
 
