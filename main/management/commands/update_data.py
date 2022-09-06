@@ -15,7 +15,7 @@ class Command(BaseCommand):
         for f in os.listdir(dir):
             os.remove(os.path.join(dir, f))
 
-    schedule.every(1).hours.do(update_data)
+    schedule.every(4).hours.do(update_data)
 
     while True:
         schedule.run_pending()
