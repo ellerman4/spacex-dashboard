@@ -82,6 +82,13 @@ The above startup command includes a scheduled function to delete the cached jso
 <p align="center">
 <a href="https://github.com/ellerman4/"><img alt="alt_text" width="400px" src="https://user-images.githubusercontent.com/106990217/187327102-c4e9ef1b-3c14-4b9f-b814-c6d5b2ae8529.png" /></a></p>
 
+<p align="center">
+<a href="https://github.com/ellerman4/"><img alt="alt_text" width="780px" src="https://user-images.githubusercontent.com/106990217/188743587-6418c6db-be9b-4724-9c4c-d4f3a99a8c87.png" /></a></p>
+
+<h5 align="center">
+  Note: No sensitive data is actually stored, done to learn security headers.
+</h5>
+
 ##
 </br>
 <p align="center">
