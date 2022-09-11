@@ -2,9 +2,9 @@
 
 <a href="https://www.spacex-dashboard.app/"><h1 align="center">SpaceX Dashboard</h1></a>
 
-<h5 align="center" color="yellow">
+<!-- <h5 align="center" color="yellow">
   <i style='color:red'>currently serving from cached data due to SpaceX API downtime</i>
-</h5>
+</h5> -->
 
 <h3 align="center">
 A SpaceX Dashboard site built with the <a href="https://github.com/r-spacex/SpaceX-API">SpaceX API</a>.
@@ -86,7 +86,7 @@ The above startup command includes a scheduled function to delete the cached jso
 <a href="https://github.com/ellerman4/"><img alt="alt_text" width="780px" src="https://user-images.githubusercontent.com/106990217/188743587-6418c6db-be9b-4724-9c4c-d4f3a99a8c87.png" /></a></p>
 
 <h5 align="center">
-  Note: No sensitive data is actually stored, done to learn security headers.
+  Note: No sensitive data is actually stored, just wanted to learn security headers.
 </h5>
 
 ##
