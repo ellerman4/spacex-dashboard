@@ -222,12 +222,12 @@ CSP_DEFAULT_SRC = ("'self'", )
 
 # style from our domain and googleapis
 CSP_STYLE_SRC = ("'self'", 
-    "'unsafe-inline'",
+    "'unsafe-inline'",      # CHANGE THIS
     "https://fonts.googleapis.com",)
 
 CSP_SCRIPT_SRC = ("'self'",
-        "'unsafe-eval'",
-        "'unsafe-inline'",
+        "'unsafe-eval'",    # CHANGE THIS
+        "'unsafe-inline'",  # CHANGE THIS
         "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
         "cdn.tailwindcss.com",
         "ajax.googleapis.com",
